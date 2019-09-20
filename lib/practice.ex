@@ -18,8 +18,53 @@ defmodule Practice do
 
   def factor(x) do
     # Maybe delegate this too.
-    [1,2,x]
-  end
+   
+   {z,_} = Integer.parse(x)
+   list = []
+  
+    y = primefactor(z,2,list)
+   #Enum.map(y, fn x -> x*1   end)
+   #Enum.reduce(y, fn (x,acc) -> Integer.to_string(x) <> acc   end)
+  #Enum.at(y,1)
+   addstring(y,0,length(y))
+end 
 
+def addstring(inputArray,index,size) do
+   if (index == size) do
+       ans = " "
+       ans
+   else
+       final = Integer.to_string(Enum.at(inputArray,index)) <> " " <> addstring(inputArray,index + 1,size)
+       final
+   end
+end
+ 
+  def primefactor(n, i , list )   do
+  
+ 
+    if n  <  i do
+      list
+    else	
+      if (rem(n,i) == 0)  do
+        le = list ++ [i]
+        primefactor(div(n,i), i, le)
+      else
+        primefactor(n,i+1, list)
+      end
+   end
+ end     
+  
+  
+
+  def palindrome(x) do
+  
+   y = String.reverse(x)
+
+   if y === x do 
+     "yes"
+   else
+     "no"
+end
+  end
   # TODO: Add a palindrome? function.
 end
