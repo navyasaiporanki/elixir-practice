@@ -18,23 +18,22 @@ defmodule Practice do
 
   def factor(x) do
     # Maybe delegate this too.
-   
-   {z,_} = Integer.parse(x)
-   list = []
   
-    y = primefactor(z,2,list)
-   #Enum.map(y, fn x -> x*1   end)
-   #Enum.reduce(y, fn (x,acc) -> Integer.to_string(x) <> acc   end)
-  #Enum.at(y,1)
-   addstring(y,0,length(y))
-end 
+     
+      x = to_string(x)
+      {z,_} = Integer.parse(x)
+      list = []
+      y = primefactor(z,2,list)
+      addstring(y,0,length(y))
+  end 
 
 def addstring(inputArray,index,size) do
    if (index == size) do
        ans = " "
+       ans = String.trim(ans)
        ans
    else
-       final = Integer.to_string(Enum.at(inputArray,index)) <> " " <> addstring(inputArray,index + 1,size)
+       final = Integer.to_string(Enum.at(inputArray,index))  <> " " <> addstring(inputArray,index + 1,size) 
        final
    end
 end
