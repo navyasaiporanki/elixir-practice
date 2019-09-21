@@ -24,14 +24,17 @@ defmodule Practice do
       {z,_} = Integer.parse(x)
       list = []
       y = primefactor(z,2,list)
+     
       addstring(y,0,length(y))
+     
+     
   end 
 
 def addstring(inputArray,index,size) do
    if (index == size) do
        ans = " "
-       ans = String.trim(ans)
-       ans
+       #ans = String.trim(ans)
+       ans       
    else
        final = Integer.to_string(Enum.at(inputArray,index))  <> " " <> addstring(inputArray,index + 1,size) 
        final

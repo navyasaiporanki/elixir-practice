@@ -11,8 +11,10 @@ defmodule Practice.Calc do
        
    expr = expr |> String.split(~r/\s+/)
    r = div(expr)
-   Enum.at(r,0)
-  
+   z =to_string(Enum.at(r,0))
+   z = parse_float(z)
+   z
+   
   end
   
   def mul(expr) do
